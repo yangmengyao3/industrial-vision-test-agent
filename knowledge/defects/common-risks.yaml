@@ -1,0 +1,9 @@
+id: defect-common-risks
+title: 工业视觉常见风险
+category: defect
+summary: 工业视觉工具常见误检和漏检风险集合。
+common_risks:
+  - 光照变化影响结果稳定性
+  - ROI配置错误导致误检
+  - 参数组合导致漏检
+enabled: true

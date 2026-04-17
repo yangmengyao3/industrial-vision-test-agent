@@ -1,0 +1,14 @@
+<section>
+  <h2>测试点</h2>
+  <ul>
+    {% for point in test_points %}
+      <li>{{ point.test_type }} - {{ point.title }}</li>
+    {% endfor %}
+  </ul>
+  <h2>覆盖分析</h2>
+  <ul>
+    {% for item in coverage.missing_types %}
+      <li>{{ item }}</li>
+    {% endfor %}
+  </ul>
+</section>

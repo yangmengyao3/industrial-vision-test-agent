@@ -1,0 +1,20 @@
+{
+  "task_name": "面积检测标准测试",
+  "tool_name": "面积检测工具",
+  "test_depth": "标准",
+  "output_formats": [
+    "markdown"
+  ],
+  "feature_description": "检测矩形 ROI 面积",
+  "flow_steps": [
+    "创建方案",
+    "添加工具",
+    "执行检测"
+  ],
+  "parameters": [
+    {
+      "name": "面积阈值",
+      "range": "1-100"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+id: tool-area-detection
+title: 面积检测工具
+category: tool
+summary: 用于检测图像中特定区域的面积大小
+test_focus:
+  - ROI设置准确性
+  - 面积计算精度
+  - 边界条件处理
+common_risks:
+  - ROI设置错误导致误检
+  - 光照变化影响面积精度
+enabled: true

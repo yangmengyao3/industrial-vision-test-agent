@@ -1,0 +1,11 @@
+id: tool-defect-detection
+title: 瑕疵检测工具
+category: tool
+summary: 用于检测产品表面的瑕疵与缺陷
+test_focus:
+  - 敏感度影响
+  - 误报与漏报平衡
+common_risks:
+  - 敏感度过高导致误报
+  - 敏感度过低导致漏检
+enabled: true

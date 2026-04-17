@@ -1,0 +1,11 @@
+id: strategy-parameter-boundary
+title: 参数边界测试策略
+category: strategy
+summary: 只要参数存在明确范围，就必须覆盖最小值、最大值和临界值。
+test_focus:
+  - 最小值
+  - 最大值
+  - 临界值
+common_risks:
+  - 未覆盖边界导致线上异常
+enabled: true
