@@ -1,10 +1,68 @@
 {% extends "pages/layout.html" %}
 
 {% block content %}
-<section>
-  <h1>从零生成</h1>
-  <div>功能描述</div>
-  <div>参数配置</div>
-  <div>流程步骤</div>
+<section class="page-header">
+  <div>
+    <p class="eyebrow">Generate Cases</p>
+    <h1>从零生成</h1>
+    <p>填写工具信息、功能描述、参数与流程，直接生成测试点和测试用例。</p>
+  </div>
 </section>
+
+<form id="generate-form" class="panel-card form-shell" method="post" action="/actions/generate" data-result-target="result-dock">
+  <div class="form-grid">
+    <label>
+      <span>任务名称</span>
+      <input type="text" name="task_name" value="面积检测标准测试" />
+    </label>
+    <label>
+      <span>工具名称</span>
+      <input type="text" name="tool_name" value="面积检测工具" />
+    </label>
+    <label>
+      <span>测试深度</span>
+      <select name="test_depth">
+        <option>基础</option>
+        <option selected>标准</option>
+        <option>深度</option>
+      </select>
+    </label>
+    <label>
+      <span>输出格式</span>
+      <select name="output_formats">
+        <option selected>markdown</option>
+        <option>json</option>
+        <option>tree</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="section-block">
+    <h2>功能描述</h2>
+    <textarea name="feature_description" rows="5">用于检测矩形 ROI 内区域面积，可设置面积阈值后判断合格与否。</textarea>
+  </div>
+
+  <div class="section-block">
+    <h2>参数配置</h2>
+    <div class="table-like parameter-table">
+      <div class="table-head"><span>参数名</span><span>取值范围</span><span>说明</span></div>
+      <div class="table-row"><input name="parameter_names" value="面积阈值" /><input name="parameter_ranges" value="1-100" /><input name="parameter_descriptions" value="控制合格/不合格判定边界" /></div>
+      <div class="table-row"><input name="parameter_names" value="ROI类型" /><input name="parameter_ranges" value="矩形/圆形/多边形" /><input name="parameter_descriptions" value="选择检测区域形状" /></div>
+    </div>
+    <button class="ghost-btn" type="button" onclick="addParameterRow()">添加参数行</button>
+  </div>
+
+  <div class="section-block">
+    <h2>流程步骤</h2>
+    <textarea id="flow-steps-input" name="flow_steps" rows="5">创建方案
+添加工具
+配置 ROI 与阈值
+执行检测</textarea>
+  </div>
+
+  <div class="action-row">
+    <button class="primary-btn" type="submit">生成测试点</button>
+    <button class="secondary-btn" type="submit">生成完整测试用例</button>
+  </div>
+</form>
 {% endblock %}

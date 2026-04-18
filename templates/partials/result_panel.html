@@ -1,14 +1,31 @@
-<section>
-  <h2>测试点</h2>
-  <ul>
-    {% for point in test_points %}
-      <li>{{ point.test_type }} - {{ point.title }}</li>
-    {% endfor %}
-  </ul>
-  <h2>覆盖分析</h2>
-  <ul>
-    {% for item in coverage.missing_types %}
-      <li>{{ item }}</li>
-    {% endfor %}
-  </ul>
+<section class="result-panel">
+  <div class="result-block">
+    <h2>测试点</h2>
+    <ul class="result-list">
+      {% for point in test_points %}
+        <li><strong>{{ point.test_type }}</strong> · {{ point.title }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="result-block">
+    <h2>测试用例</h2>
+    <ul class="result-list">
+      {% for case in test_cases %}
+        <li><strong>{{ case.case_id }}</strong> · {{ case.name }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="result-block">
+    <h2>覆盖分析</h2>
+    <ul class="result-list">
+      {% for item in coverage.missing_types %}
+        <li>{{ item }}</li>
+      {% endfor %}
+      {% for risk in coverage.risks %}
+        <li>{{ risk }}</li>
+      {% endfor %}
+    </ul>
+  </div>
 </section>

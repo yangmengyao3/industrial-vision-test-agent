@@ -1,8 +1,39 @@
 {% extends "pages/layout.html" %}
 
 {% block content %}
-<main>
-  <h1>工业视觉测试用例 Agent 工作台</h1>
-  <p>支持从零生成、用例优化、知识库驱动和覆盖分析。</p>
-</main>
+<section class="hero-card">
+  <div>
+    <p class="eyebrow">Industrial Vision QA</p>
+    <h1>工业视觉测试用例 Agent 工作台</h1>
+    <p class="hero-copy">围绕工业视觉工具测试场景，完成从需求输入、测试点规划、用例生成到覆盖分析与优化的完整工作流。</p>
+  </div>
+  <div class="hero-actions">
+    <a class="primary-btn" href="/generate">新建生成任务</a>
+    <a class="secondary-btn" href="/optimize">导入已有用例</a>
+  </div>
+</section>
+
+<section class="dashboard-grid">
+  <article class="panel-card">
+    <h2>快速开始</h2>
+    <ul class="simple-list">
+      <li>输入功能描述、参数与流程</li>
+      <li>自动规划测试点</li>
+      <li>生成结构化测试用例</li>
+    </ul>
+  </article>
+  <article class="panel-card">
+    <h2>当前能力</h2>
+    <div class="tag-group">
+      <span class="chip">从零生成</span>
+      <span class="chip">用例优化</span>
+      <span class="chip">知识库驱动</span>
+      <span class="chip">覆盖分析</span>
+    </div>
+  </article>
+  <article class="panel-card">
+    <h2>推荐入口</h2>
+    <p>第一次体验建议先进入“从零生成”，再用“用例优化”查看补全效果。</p>
+  </article>
+</section>
 {% endblock %}

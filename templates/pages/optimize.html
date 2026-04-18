@@ -1,9 +1,47 @@
 {% extends "pages/layout.html" %}
 
 {% block content %}
-<section>
-  <h1>用例优化</h1>
-  <label>原始用例输入</label>
-  <textarea name="raw_text"></textarea>
+<section class="page-header">
+  <div>
+    <p class="eyebrow">Optimize Existing Cases</p>
+    <h1>用例优化</h1>
+    <p>导入已有测试用例，补齐边界值、异常、流程与覆盖缺口。</p>
+  </div>
 </section>
+
+<form id="optimize-form" class="panel-card form-shell" method="post" action="/actions/optimize" data-result-target="result-dock">
+  <div class="form-grid">
+    <label>
+      <span>工具名称</span>
+      <input type="text" name="tool_name" value="面积检测工具" />
+    </label>
+    <label>
+      <span>参考模式</span>
+      <select>
+        <option selected>标准优化</option>
+        <option>深度补全</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="section-block">
+    <h2>原始用例输入</h2>
+    <textarea name="raw_text" rows="8">## 测试用例：VIS-AREA-FUNC-001
+仅包含基本功能测试</textarea>
+  </div>
+
+  <div class="section-block">
+    <h2>优化目标</h2>
+    <div class="tag-group">
+      <span class="chip selected">补边界值测试</span>
+      <span class="chip selected">补异常场景</span>
+      <span class="chip">完善步骤可操作性</span>
+      <span class="chip">提升覆盖率</span>
+    </div>
+  </div>
+
+  <div class="action-row">
+    <button class="primary-btn" type="submit">开始优化</button>
+  </div>
+</form>
 {% endblock %}

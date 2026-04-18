@@ -2,6 +2,8 @@ from fastapi import APIRouter, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 
+from app.services.knowledge_service import KnowledgeService
+
 router = APIRouter()
 templates = Jinja2Templates(directory="templates")
 
@@ -35,8 +37,9 @@ def optimize_page(request: Request) -> HTMLResponse:
 
 @router.get("/knowledge", response_class=HTMLResponse)
 def knowledge_page(request: Request) -> HTMLResponse:
+    knowledge_items = KnowledgeService().load_all()
     return templates.TemplateResponse(
         request,
         "pages/knowledge.html",
-        {"page_title": "知识库管理"},
+        {"page_title": "知识库管理", "knowledge_items": knowledge_items},
     )

@@ -1,20 +1,27 @@
 {
   "task_name": "面积检测标准测试",
   "tool_name": "面积检测工具",
-  "test_depth": "标准",
+  "test_depth": "基础",
   "output_formats": [
-    "markdown"
+    "json"
   ],
-  "feature_description": "检测矩形 ROI 面积",
+  "feature_description": "用于检测矩形 ROI 内区域面积，可设置面积阈值后判断合格与否。",
   "flow_steps": [
     "创建方案",
     "添加工具",
+    "配置 ROI 与阈值",
     "执行检测"
   ],
   "parameters": [
     {
       "name": "面积阈值",
-      "range": "1-100"
+      "range": "1-100",
+      "description": "控制合格/不合格判定边界"
+    },
+    {
+      "name": "ROI类型",
+      "range": "矩形/圆形/多边形",
+      "description": "选择检测区域形状"
     }
   ]
 }

@@ -1,8 +1,44 @@
 {% extends "pages/layout.html" %}
 
 {% block content %}
-<section>
-  <h1>知识库管理</h1>
-  <p>支持查看和维护工具知识、测试策略和缺陷经验。</p>
+<section class="page-header">
+  <div>
+    <p class="eyebrow">Knowledge Center</p>
+    <h1>知识库管理</h1>
+    <p>查看和维护工具知识、测试策略与常见风险，为生成链路提供支撑。</p>
+  </div>
+</section>
+
+<section class="knowledge-layout">
+  <aside class="panel-card knowledge-nav">
+    <h2>分类</h2>
+    <ul class="simple-list">
+      <li>工具知识</li>
+      <li>测试策略</li>
+      <li>常见风险</li>
+    </ul>
+  </aside>
+
+  <div class="panel-card knowledge-content">
+    <h2>知识条目</h2>
+    <div class="knowledge-list">
+      {% for item in knowledge_items %}
+        <article class="knowledge-item">
+          <div class="knowledge-item-head">
+            <h3>{{ item.title }}</h3>
+            <span class="chip">{{ item.category }}</span>
+          </div>
+          <p>{{ item.summary }}</p>
+          {% if item.test_focus %}
+          <div class="tag-group">
+            {% for focus in item.test_focus %}
+              <span class="chip">{{ focus }}</span>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </div>
+  </div>
 </section>
 {% endblock %}
